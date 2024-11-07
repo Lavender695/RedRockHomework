@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网易云音乐登录界面</title>
+    <style>
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .icon{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40vh;
+        }
+        .close_buttom{
+            user-select: none;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            position: absolute;
+        }
+        .window{
+            position: relative;
+            height: 100vh;
+            width: 50%;
+        }
+        .close_buttom:hover{
+            color: brown;
+            background-color: rgb(233, 233, 233);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="window">
+            <div class="buttom">
+                <div class="close_buttom" style="font-size: 45px;">×</div>
+            </div>
+    
+            <div class="icon">
+                <img src="https://tse3-mm.cn.bing.net/th/id/OIP-C.3tqJkvugNd4Zb4JEKvcFKQHaHa?w=176&h=180&c=7&r=0&o=5&dpr=2&pid=1.7" 
+                alt="网易云音乐的图标" style="height: 150px;">
+            </div>
+
+            <div>
+                <form action="login" method="post">
+                    <label for="tele_num">电话号码:</label>
+                    <input type="text" id="tele_num" required>
+
+                    <label for="password">密码:</label>
+                    <input type="password" id="password" required>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

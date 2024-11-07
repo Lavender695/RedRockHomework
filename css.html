@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <style>
+        .demo{
+            display: inline-block;
+            background-color: #fdf1ff;
+            border: 4px solid #f7b0c7;
+            padding: 50px;
+        }
+
+        .e{
+            font-size: 45px;
+            background-color: antiquewhite;
+            width: 250px;
+            height: 250PX;
+            border-style: double dashed solid dotted;
+            border-width: 30px 20px 10px 5px;
+            border-color: #aaa3de;
+            padding: 30px;
+        }
+        .father
+        {
+            background-color: #f7b0c7;
+            height: 150px;
+            border: 3px solid purple;
+            overflow: hidden;
+        }
+        .left-son{
+            width: 100px;
+            height: 110px;
+            background-color: #c5fafa;
+            float: left;
+        }
+        .right-son{
+            width: 100px;
+            height: 200px;
+            background-color: #9187da;
+            float: right;
+        }
+        .box1{
+            background-color: olive;
+            width: 500px;
+            height: 300px;;
+        }
+        .box-normal{
+            background-color: rgb(232, 255, 196);
+            width: 100px;
+            height: 100px;
+        }
+        .box-relative{
+            background-color: #f7b0c7;
+            width: 100px;
+            height: 100px;
+            position: relative;
+            left: 150px;
+            top: 35px;
+        }
+        .box2{
+            background-color: #aaa3de;
+            width: 500px;
+            height: 250px;
+            overflow: hidden;
+        }
+        .box-absolute{
+            background-color: aquamarine;
+            width: 50px;
+            height: 80px;
+            position: absolute;
+            left: 133px;
+        }
+        .box-fixed{
+            background-color: burlywood;
+            width: 100px;
+            height: 100px;
+            position: fixed;
+            right: 0px;
+            top: 400px;
+            border: 2px solid;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo">你好</div>
+    <div class="e">非常好</div>
+    <div class="father">
+        <div class="left-son">左浮动</div>
+        <div class="left-son">左浮动</div>
+        <div class="left-son">左浮动</div>
+        <div class="left-son">左浮动</div>
+        <div class="left-son">左浮动</div>
+        <div class="right-son">右浮动</div>
+    </div>
+    <p>你好你好</p>
+
+
+    <h1>相对定位</h1>
+    <div class="box1">
+        <div class="box-normal"></div>
+        <div class="box-relative"></div>
+        <div class="box-normal"></div>
+    </div>
+
+    <h1>绝对定位</h1>
+    <div class="box2">
+        <div class="box-normal"></div>
+        <div class="box-absolute"></div>
+        <div class="box-normal"></div>
+    </div>
+
+    <h1>固定定位</h1>
+    <div class="box-fixed">太厉害咯</div>
+    </div>
+</body>
+</html>
