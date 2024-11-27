@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lv2作业</title>
+    <style>
+        body {
+            background-color: rgb(22, 21, 47);
+            overflow: hidden;
+        }
+
+        .card_container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            height: 240px;
+            width: 210px;
+            background-color: rgb(63, 63, 63);
+            border-radius: 8%;
+            font-size: 100px;
+            text-align: center;
+            transition-duration: 1.4s;
+        }
+
+        .card:hover{
+            background-color: rgb(239, 179, 15);
+            transform: translate(0px, -30px) scale(1.1);
+            transition-duration: 1.4s;
+        }
+
+        .mooncard {
+            font-size: 20px;
+            color: antiquewhite;
+        }
+
+        .card:hover .mooncard{
+            color: rgb(105, 93, 77);
+        }
+
+        .poet {
+            display: flex;
+            flex-direction: column;
+            color: #b4bfe0;
+            font-size: 12px;
+            align-items: flex-start;
+            margin-top: -700px;
+            margin-left: 50px;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <div class="card_container">
+        <div class="card">
+            🌙
+            <p class="mooncard">Moon Card</p>
+        </div>
+    </div>
+    <div class="poet">
+        <p>恰似紫罗兰的温柔的眼睛</p>
+        <p>凝视着湛蓝的天空，</p>
+        <p>直至那色泽变得与目光相同；</p>
+        <p>恰似灰色的渺茫的薄雾</p>
+        <p>像固体的紫晶一般</p>
+        <p>躺在它所拥抱的西方的群山，</p>
+        <p>山上那皑皑的白雪</p>
+        <p>就是落日沉睡的地方；</p>
+        <p>恰似一个甜蜜动人的曲调，</p>
+        <p>覆盖了周围的轻风，</p>
+        <p>直至无声的轻风也变成乐曲，</p>
+        <p>恰似黑暗、空茫、沉闷的一切，</p>
+        <p>在美丽的物体中寻求乐趣，</p>
+        <p>直至它们充满光芒和爱情……</p>
+        <p>————雪莱 《月光变奏曲》</p>
+    </div>
+</body>
+</html>
