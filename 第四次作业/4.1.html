@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lv1</title>
+</head>
+<body>
+    <script>
+        //第一种方法————使用Object()
+        let person1 = new Object();
+        person1.name = "Li Hong";
+        person1.gender = "Female";
+        console.log(person1);
+
+        //第二种方法————使用对象字面量
+        let person2 = {
+            name: "Xiao Ming",
+            gender: "Male"
+        }
+        console.log(person2);
+
+        //第三种方法————使用构造函数
+        function Person(name, gender) {
+            this.name = name;
+            this.gender = gender;
+            this.sayname = () => {
+                console.log(this.name);
+            }
+        }
+        const person3 = new Person("Chou Chou", "Male");
+        const person4 = new Person("Maria", "Female");
+
+        console.log(person3);
+        console.log(person4);
+
+        person3.sayname();
+        
+    </script>
+</body>
+</html>
