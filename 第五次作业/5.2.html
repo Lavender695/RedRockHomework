@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lv2</title>
+</head>
+<body>
+    <script>
+        let person = {name: 'Alice', address: {city: 'Dublin', street: '1st'}}//首先创建了一个对象
+
+        let p1 = {};//又创建了一个新的对象
+        Object.assign(p1, person);//使用object.assign()进行浅拷贝（我不会理解错题意了吧……？不允许用object.assign()吗？放在最后了……）
+
+        //此时输出p1与person完全相同
+        console.log(person);
+        console.log(p1);
+        console.log('---');
+
+        //现在修改p1中的基本类型的属性name，可以看到只有p1发生了变化，证明p1中的name属性只是person的复制，而不是引用
+        p1.name = 'Mark';
+        console.log(person);
+        console.log(p1);
+        console.log('---');
+
+        //现在修改person中的基本类型的属性name，同样可以看到只有person发生了变化，再次证明两个对象的name属性并无联系
+        person.name = 'Olivia';
+        console.log(person);
+        console.log(p1);
+        console.log('---');
+
+        //现在修改person中的引用类型属性，会发现person和p1的address属性都发生了变化，证明两者的address属性引用的是同一个地址的对象
+        person.address.city = 'Amsterdam';
+        console.log(person);
+        console.log(p1);
+        console.log('---');
+
+        //现在修改p1中的引用类型属性，两者的都发生了变化，再次证明address是对同一个对象的引用，而非复制
+        p1.address.street = '2nd';
+        console.log(person);
+        console.log(p1);
+        console.log('---');
+
+        //总结：使用浅拷贝时，若属性为基本类型，则在新的对象中储存该属性的复制。若为引用类型属性，则储存该对象的引用
+
+        //下面是实现Object.assign()功能的函数
+        function copy(obj) {
+            let ret = {};
+            for (const key in obj) {
+                ret[key] = obj[key];
+            }
+            return ret;
+        };
+
+        //测试
+        let cat = {apperance: {color: 'white', hair: 'long'}};
+        let c1 = {};
+        c1 = copy(cat);
+        c1.apperance.hair = 'short';
+        console.log(cat);//没有问题
+    </script>
+</body>
+</html>
