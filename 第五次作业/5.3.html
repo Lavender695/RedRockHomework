@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lv3</title>
+</head>
+<body>
+    <script>
+        //通过递归实现深拷贝，能力有限，看那片文章感觉好难，只能勉强看懂(; u ;)
+        function deepcopy(obj, map = new Map()) {
+            if (typeof obj === 'object' && obj != null) {//因为js的历史遗留问题typeof null也会返回object，所以这里需要排除null的情况
+                let res = Array.isArray(obj) ? [] : {}; //判断obj是object中的数组还是对象，若是数组，则创建一个新空数组，否则创建一个新空对象
+                if (map.get(obj)) {//这里应该是看map里面是不是已经存在obj这个key了
+                    return map.get(obj);//如果有，就直接返回它的value
+                }
+                map.set(obj, res);//如果map里面现在没有obj这个key，就添加一个到map里面
+                for (const key in obj) {//遍历obj里面的所有属性
+                    res[key] = deepcopy(obj[key], map);//递归
+                }
+                return res;
+            }else{//如果obj不是对象，直接返回
+                return obj;
+            }
+        }
+    </script>
+</body>
+</html>
