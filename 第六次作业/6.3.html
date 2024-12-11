@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lv2</title>
+
+    <style>
+        input {
+            width: 99%;
+            height: 90px;
+            margin: 5px;
+        }
+
+        .empty {
+            text-align: center;
+            font: 14px;
+            color: gray;
+        }
+
+        .delete-button {
+            position: absolute;
+            background-color: rgb(189, 189, 189);
+            color: black;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            display: none;
+            /* 默认隐藏 */
+            z-index: 1000;
+            /* 确保按钮在其他内容之上 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title">
+        <span>评论（</span>
+        <span id="counter">0</span>
+        <span>）</span>
+    </div>
+    <input type="text">
+    <button id="submit" onclick="addComment()">评论</button>
+
+    <div class="commentSection">
+        <div class="empty">还没有评论，快来抢沙发~</div>
+        <!--新评论会插入这里-->
+    </div>
+
+    <script>
+        //获取用户输入内容
+        const button = document.querySelector('#submit')
+        const counter = document.querySelector('.title #counter')
+        const empty = document.querySelector('.empty')
+
+        function addComment() {
+            //获取评论区容器
+            var commentSection = document.querySelector('.commentSection')
+
+            //检查评论区是否为空
+            var note = document.getElementsByClassName('empty')[0]
+            if (note) {
+                commentSection.removeChild(note)
+            }
+
+            //创建一个新的评论元素容器，需要包括用户名、头像、评论文本
+            var newCommentBox = document.createElement('div')
+            newCommentBox.style.display = 'flex'
+            newCommentBox.style.margin = '20px'
+
+            //创建一个新的容器2，只放用户名和评论文本
+            var newBox = document.createElement('div')
+
+
+            //创建一个新的评论文本元素
+            var newComment = document.createElement('div')
+
+            //添加头像到评论元素容器中
+            var portrait = document.createElement('div')
+            portrait.style.background = 'grey'
+            portrait.style.width = '30px'
+            portrait.style.height = '30px'
+            portrait.style.borderRadius = '15px'
+            portrait.style.margin = '5px'
+            newCommentBox.appendChild(portrait)
+
+            //添加用户名到容器2中
+            var name = document.createElement('div')
+            name.textContent = '匿名用户'
+            name.style.fontSize = '15px'
+            newBox.appendChild(name)
+
+            //获取用户输入内容，并将评论文本元素添加到评论元素容器中，并清空输入框
+            var commentText = document.querySelector('input[type="text"]')
+            newComment.textContent = commentText.value
+            newBox.appendChild(newComment)
+            commentText.value = ''
+
+            //将容器2添加到评论元素容器中
+            newCommentBox.appendChild(newBox)
+
+            //将评论元素容器添加到评论区中
+            commentSection.appendChild(newCommentBox)
+            counter.textContent = parseInt(counter.textContent) + 1
+
+            //添加监听
+            newCommentBox.addEventListener('contextmenu', function (event) {
+                //阻止默认行为
+                event.preventDefault()
+
+                //创建一个删除按钮
+                deleteButton = document.createElement('button')
+                deleteButton.classList.add('delete-button')//添加delete-button这个classname到了deleteButton上
+                deleteButton.textContent = '删除'
+
+                //使删除按钮显示
+                deleteButton.style.display = 'block'
+                document.body.appendChild(deleteButton)
+
+                //调整按钮位置
+                deleteButton.style.left = `${event.pageX}px`;
+                deleteButton.style.top = `${event.pageY}px`;
+
+                deleteButton.addEventListener('click',function() {
+                    newCommentBox.remove()
+                    counter.textContent = parseInt(counter.textContent) - 1
+                    deleteButton.remove()
+                })
+            })
+        }
+
+    </script>
+</body>
+
+</html>
