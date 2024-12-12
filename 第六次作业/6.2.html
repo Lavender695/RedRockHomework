@@ -43,28 +43,28 @@
 
         function addComment() {
             //获取评论区容器
-            var commentSection = document.querySelector('.commentSection')
+            let commentSection = document.querySelector('.commentSection')
 
             //检查评论区是否为空
-            var note = document.getElementsByClassName('empty')[0]
+            let note = document.getElementsByClassName('empty')[0]
             if (note) {
                 commentSection.removeChild(note)
             }
 
             //创建一个新的评论元素容器，需要包括用户名、头像、评论文本
-            var newCommentBox = document.createElement('div')
+            let newCommentBox = document.createElement('div')
             newCommentBox.style.display = 'flex'
             newCommentBox.style.margin = '20px'
 
             //创建一个新的容器2，只放用户名和评论文本
-            var newBox = document.createElement('div')
+            let newBox = document.createElement('div')
 
 
             //创建一个新的评论文本元素
-            var newComment = document.createElement('div')
+            let newComment = document.createElement('div')
 
             //添加头像到评论元素容器中
-            var portrait = document.createElement('div')
+            let portrait = document.createElement('div')
             portrait.style.background = 'grey'
             portrait.style.width = '30px'
             portrait.style.height = '30px'
@@ -73,12 +73,12 @@
             newCommentBox.appendChild(portrait)
 
             //添加用户名到容器2中
-            var name = document.createElement('div')
+            let name = document.createElement('div')
             name.textContent = '匿名用户'
             newBox.appendChild(name)
 
             //获取用户输入内容，并将评论文本元素添加到评论元素容器中，并清空输入框
-            var commentText = document.querySelector('input[type="text"]')
+            let commentText = document.querySelector('input[type="text"]')
             newComment.textContent = commentText.value
             newBox.appendChild(newComment)
             commentText.value = ''
