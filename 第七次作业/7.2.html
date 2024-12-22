@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lv2</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=DynaPuff:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playwrite+CO+Guides&display=swap');
+
+        body,
+        html {
+            height: 100vh;
+            width: 100vw;
+            background: linear-gradient(to bottom, rgb(181, 140, 247), rgb(164, 144, 244),rgb(114, 72, 185), rgb(22, 22, 109)), no-repeat;
+        }
+
+        .box {
+            padding: 20px;
+            margin-top: 50px;
+            margin-left: 200px;
+            margin-right: 200px;
+            background: rgba(4, 4, 4, 0.2);
+            border-radius: 40px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.414);
+        }
+
+        p {
+            font-family: "Playwrite CO Guides", serif;
+            font-weight: 400;
+            color: rgb(252, 226, 142);
+            text-shadow: 4px 4px 10px white;
+        }
+
+        .title {
+            font-size: 2rem;
+        }
+
+        .note {
+            font-size: 16px;
+        }
+
+        .content {
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <p class="title">
+            <!--在此處插入標題-->
+        </p>
+
+        <div>
+            <p class="note">
+
+            </p>
+        </div>
+        <div>
+            <p class="content">
+                <!--在此處插入正文-->
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const title = document.querySelector('.title')
+        const note = document.querySelector('.note')
+        const content = document.querySelector('.content')
+
+        function delay(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms))
+        }
+
+        function show(target, str, index = 0, ms = 100) {
+            if (index < str.length) {
+                target.innerHTML += str[index]
+                return delay(ms).then(() => show(target, str, index + 1, ms))
+            }
+            return Promise.resolve
+        }
+
+        pgTitle = "Google Announces Solution to a Big Problem in Quantum Computing"
+        pgNote = "By Jill Robbins 15 December, 2024"
+        pgContent = "Google recently said that it had solved a major problem in supercomputing with a new generation of processor called Willow. "
+        pgContent += "Along with other technology companies such as Microsoft and International Business Machines (IBM), Google, whose parent company is Alphabet, is working on quantum computing. The new development promises to increase computing speeds while limiting mistakes, or errors, which are a problem with quantum computing systems. "
+        pgContent += "Scientists at the company's Santa Barbara, California quantum laboratory announced they had at least partly solved the error problem on December 9. On the same day, the scientific publication Nature published their paper on error correction......"
+
+        show(title, pgTitle, 0, 15).then(() => show(note, pgNote, 0, 15))
+            .then(() => show(content, pgContent, 0, 15))
+    </script>
+</body>
+
+</html>

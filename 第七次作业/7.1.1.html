@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--唯一的區別是顔色不一樣哈哈哈，因爲感覺兩個都非常漂亮選不出來了www-->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lv1</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=DynaPuff:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playwrite+CO+Guides&display=swap');
+
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, rgb(131, 212, 252), rgb(240, 245, 166));
+        }
+
+        .box {
+            background-color: rgb(255, 255, 255, 0.6);
+            border-radius: 3cm;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        p {
+            margin: 100px;
+            font-size: 4rem;
+            font-family: "DynaPuff", system-ui;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings:
+                "wdth" 100;
+            color: rgb(66, 62, 61);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <!--在此處插入字符-->
+    </div>
+
+    <script>
+        const box = document.querySelector('.box')
+        const p = document.createElement('p')
+        const text = "Practice makes perfect."
+        box.appendChild(p)
+        let index = 0
+
+        function show(index) {
+            if (index < text.length) {
+                p.innerHTML += text[index]
+                setTimeout(() => {
+                    show(++index)
+                }, 100)
+            }
+        }
+
+        show(0)
+
+    </script>
+</body>
+
+</html>
